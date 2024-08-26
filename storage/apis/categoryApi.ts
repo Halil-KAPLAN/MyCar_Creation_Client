@@ -10,10 +10,17 @@ interface UpdateCategoryModel {
   categoryModel: CategoryModel;
 }
 
+const baseUrl = `https://b6e5-212-175-32-234.ngrok-free.app/api/`;
+
 const categoryApi = createApi({
   reducerPath: "categoryApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "",
+    baseUrl,
+    prepareHeaders: (headers) => {
+      headers.set("Ngrok-Skip-Browser-Warning", "true");
+      headers.set("Content-Type", "application/json");
+      return headers;
+    },
   }),
   endpoints: (builder) => ({
     GetAllCategory: builder.query({
