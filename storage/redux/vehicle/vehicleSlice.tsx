@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Vehicle, VehicleState } from "./type";
 
-const initialState = {
+const initialState: VehicleState = {
   vehicles: [],
   vehicleId: "",
 };
@@ -9,7 +10,7 @@ export const vehicleSlice = createSlice({
   name: "vehicle",
   initialState,
   reducers: {
-    getAllVehicles: (state, { payload }) => {
+    getAllVehicles: (state, { payload }: PayloadAction<Vehicle[]>) => {
       state.vehicles = payload;
     },
   },

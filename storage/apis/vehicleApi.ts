@@ -17,7 +17,7 @@ interface UpdateVehicleModel {
 const vehicleApi = createApi({
   reducerPath: "vehicleApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://4fde-212-175-32-234.ngrok-free.app/api/",
+    baseUrl: `${process.env.EXPO_PUBLIC_API_URL}/api/`,
   }),
   endpoints: (builder) => ({
     GetAllVehicle: builder.query({
